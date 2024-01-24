@@ -1,13 +1,29 @@
-import Link from "next/link";
-import Layout from "../components/Layout";
+import React from 'react';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import styled from 'styled-components';
+import { light, dark } from '../theme';
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-);
+const StyledContainer = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+`;
 
-export default IndexPage;
+const HomePage: React.FC<{ toggleTheme: () => void }> = ({ toggleTheme }) => {
+  return (
+    <StyledContainer>
+      <Typography variant="h1" gutterBottom>
+        Welcome to My Next.js App
+      </Typography>
+      <Button variant="contained" color="primary" onClick={toggleTheme}>
+        Toggle Theme
+      </Button>
+    </StyledContainer>
+  );
+};
+
+export default HomePage;
